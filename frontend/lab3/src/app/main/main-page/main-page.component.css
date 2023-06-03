@@ -1,0 +1,136 @@
+header {
+  background-color: #07bf9f;
+  border-bottom: 1px solid #e6e6e6;
+  height: 45px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.logo {
+  height: 45px;
+}
+
+.header-right,
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-right {
+  margin-right: 15px;
+}
+
+.avatar {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.nickname {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.textbox input {
+  border: 1px solid #d7856f;
+  border-radius: 5px;
+  color: #d7856f;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.textbox input:hover {
+  background-color: #d7856f;
+  color: #fff;
+}
+
+input::file-selector-button {
+  border: 1px solid #d7856f;
+  border-radius: 5px;
+  color: #d7856f;
+  font-size: 14px;
+  padding: 3px 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+form {  
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn {
+  background-color: #d7856f;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #d7856f;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+  color: #888;
+}
+
+.btn:disabled:hover {
+  background-color: #ccc;
+  color: #888;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+main {
+  flex: 1;
+  padding-top: 45px;
+  background-color: #f3fefc;
+}
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 25px 20px 20px 20px;
+}
+
+footer {
+  background-color: #07bf9f;
+  border-top: 1px solid #e6e6e6;
+  height: 45px;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

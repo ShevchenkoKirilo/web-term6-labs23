@@ -1,0 +1,39 @@
+<div class="image-wrapper">
+  <div class="image">
+    <img src="{{ image.imageBase64 }}" alt="image" />
+  </div>
+  <div class="controls-block" *ngIf="user">
+    <div class="left">
+      <div
+        class="like-button"
+        *ngIf="image.userLikedIds.includes(user.id); else notLiked"
+      >
+        <button class="btn" (click)="removeLike()">Unlike</button>
+      </div>
+      <ng-template class="like-icon" #notLiked>
+        <button class="btn" (click)="addLike()">Like</button>
+      </ng-template>
+      <div class="likes-count">{{ image.userLikedIds.length }}</div>
+    </div>
+    <div class="right">
+      <div
+        class="delete-button"
+        *ngIf="user.id === image.userId || user.isAdmin"
+      >
+        <button class="btn" (click)="deleteImage()">Delete</button>
+      </div>
+      <div
+        class="ban-button"
+        *ngIf="user.isAdmin && !image.userIsBanned && image.userId != user.id"
+      >
+        <button class="btn" (click)="banUser()">Ban</button>
+      </div>
+      <div
+        class="ban-button"
+        *ngIf="user.isAdmin && image.userIsBanned && image.userId != user.id"
+      >
+        <button class="btn" (click)="pardonUser()">Pardon</button>
+      </div>
+    </div>
+  </div>
+</div>

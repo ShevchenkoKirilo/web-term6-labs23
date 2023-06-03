@@ -1,0 +1,49 @@
+<header>
+  <div class="header-left">
+    <img class="logo" src="assets/images/logo2.png" alt="logo" />
+  </div>
+  <div class="header-right">
+    <div class="user-profile" *ngIf="user; else login_buttons">
+      <span class="nickname">{{ user.nickname }}</span>
+      <a class="btn" routerLink="" (click)="logout()">Logout</a>
+      <div *ngIf="user.avatarBase64">
+        <img class="avatar" src="{{ user.avatarBase64 }}" alt="user" />
+      </div>
+    </div>
+    <ng-template class="not-logged" #login_buttons>
+      <a class="btn" routerLink="/login">Login</a>
+      <a class="btn" routerLink="/register">Register</a>
+    </ng-template>
+  </div>
+</header>
+<div class="main-wrapper">
+  <main>
+    <div class="upload-image" *ngIf="user">
+      <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+        <div class="textbox">
+          <input
+            type="file"
+            accept="image/*"
+            formControlName="imageInput"
+            (change)="onFileChange($event)"
+          />
+        </div>
+        <button
+          class="btn"
+          type="submit"
+          [disabled]="!uploadForm.valid || user.isBanned"
+        >
+          Upload
+        </button>
+      </form>
+    </div>
+    <div class="images-container">
+      <div class="image" *ngFor="let image of images">
+        <app-image-block [image]="image"></app-image-block>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Done by Kyrylo Shevchenko</p>
+  </footer>
+</div>
